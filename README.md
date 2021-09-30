@@ -419,4 +419,28 @@ This is the code generated :
     </Collection>
 </Annotation>
 ```
+## Testing the Analytical List Page 👨‍💻
 
+https://user-images.githubusercontent.com/55688528/135485781-eb006a71-b45c-434d-a86c-5bf197324f39.mp4
+
+## Acknowledgement 📚
+- **ABAP CDS**
+- **Fiori Elements**
+- **Annotations**
+- **UI5**
+
+## Built with 🛠️
+_Back-end:_
+* **ABAP CDS**
+
+_Gateway:_
+* **oData**
+
+_Front-End:_
+* **UI5**
+* **Fiori Elements**
+* **Annotations**
+
+---
+
+⌨️ with ❤️ love [GonzaloMB](https://github.com/GonzaloMB) 😊
