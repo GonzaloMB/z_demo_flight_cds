@@ -1,0 +1,101 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="Z_QUERY_FLIGHT_ALP_CDS" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="ZQUERYFLIGHTALPType" sap:label="Flight (Analytical List Page)" sap:semantics="aggregate" sap:content-version="1">
+				<Key><PropertyRef Name="ID"/></Key><Property Name="ID" Type="Edm.String" Nullable="false" sap:filterable="false" sap:updatable="false" sap:sortable="false"/><Property Name="TotaledProperties" Type="Edm.String" sap:aggregation-role="totaled-properties-list" sap:is-annotation="true"
+					sap:updatable="false" sap:sortable="false"/><Property Name="CalendarYear" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:label="Flight Year" sap:creatable="false"
+					sap:updatable="false" sap:value-list="standard"/><Property Name="CustomerCountry" Type="Edm.String" MaxLength="3" sap:aggregation-role="dimension" sap:text="CustomerCountry_T"
+					sap:label="Customer Country" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/><Property Name="CustomerCountry_T" Type="Edm.String" MaxLength="1333" sap:label="Customer Country (Description)" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/><Property Name="Airline" Type="Edm.String" MaxLength="3" sap:aggregation-role="dimension" sap:text="Airline_T" sap:label="Airline"
+					sap:creatable="false" sap:updatable="false" sap:value-list="standard"/><Property Name="Airline_T" Type="Edm.String" MaxLength="1333" sap:label="Airline (Description)" sap:creatable="false" sap:updatable="false"
+					sap:filterable="false"/><Property Name="TotalOfBookings" Type="Edm.Decimal" Precision="42" Scale="0" sap:aggregation-role="measure" sap:creatable="false"
+					sap:filterable="false" sap:text="TotalOfBookings_F" sap:updatable="false" sap:label="Total of Bookings"/><Property Name="TotalOfBookings_F" Type="Edm.String" MaxLength="60" sap:label="Total of Bookings (Formatted)" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/><Property Name="WeightOfLuggage" Type="Edm.Decimal" Precision="42" Scale="3" sap:aggregation-role="measure" sap:creatable="false"
+					sap:filterable="false" sap:text="WeightOfLuggage_F" sap:unit="WeightOfLuggage_E" sap:updatable="false" sap:label="Weight of Luggage"/><Property Name="WeightOfLuggage_F" Type="Edm.String" MaxLength="60" sap:label="Weight of Luggage (Formatted)" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/><Property Name="WeightOfLuggage_E" Type="Edm.String" MaxLength="3" sap:filterable="false" sap:label="Weight of Luggage (Unit)"
+					sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/></EntityType>
+			<EntityType Name="CalendarYear" sap:label="Flight Year (Master Data)" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="CalendarYear_ID"/></Key><Property Name="CalendarYear_ID" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Flight Year" sap:creatable="false"
+					sap:updatable="false"/></EntityType>
+			<EntityType Name="CalendarYearResult" sap:label="Flight Year (Booked Data)" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="CalendarYear"/></Key><Property Name="CalendarYear" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Flight Year" sap:creatable="false"
+					sap:updatable="false"/><Property Name="CustomerCountry" Type="Edm.String" MaxLength="3" sap:text="CustomerCountry_T" sap:label="Customer Country"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/><Property Name="CustomerCountry_T" Type="Edm.String" sap:label="Customer Country (Description)" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Airline" Type="Edm.String" MaxLength="3" sap:text="Airline_T" sap:label="Airline" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Airline_T" Type="Edm.String" sap:label="Airline (Description)" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="CustomerCountry" sap:label="Customer Country (Master Data)" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="CustomerCountry_ID"/></Key><Property Name="CustomerCountry_ID" Type="Edm.String" Nullable="false" MaxLength="3" sap:text="CustomerCountryText"
+					sap:label="Customer Country" sap:creatable="false" sap:updatable="false"/><Property Name="CustomerCountryText" Type="Edm.String" sap:label="Customer Country (Description)" sap:creatable="false"
+					sap:updatable="false"/></EntityType>
+			<EntityType Name="CustomerCountryResult" sap:label="Customer Country (Booked Data)" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="CustomerCountry"/></Key><Property Name="CustomerCountry" Type="Edm.String" Nullable="false" MaxLength="3" sap:text="CustomerCountryText"
+					sap:label="Customer Country" sap:creatable="false" sap:updatable="false"/><Property Name="CustomerCountryText" Type="Edm.String" sap:label="Customer Country (Description)" sap:creatable="false"
+					sap:updatable="false"/><Property Name="CalendarYear" Type="Edm.String" MaxLength="4" sap:label="Flight Year" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="Airline" Type="Edm.String" MaxLength="3" sap:text="Airline_T" sap:label="Airline" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/><Property Name="Airline_T" Type="Edm.String" sap:label="Airline (Description)" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="Airline" sap:label="Airline (Master Data)" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Airline_ID"/></Key><Property Name="Airline_ID" Type="Edm.String" Nullable="false" MaxLength="3" sap:text="AirlineText" sap:label="Airline"
+					sap:creatable="false" sap:updatable="false"/><Property Name="AirlineText" Type="Edm.String" sap:label="Airline (Description)" sap:creatable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="AirlineResult" sap:label="Airline (Booked Data)" sap:value-list="true" sap:content-version="1">
+				<Key><PropertyRef Name="Airline"/></Key><Property Name="Airline" Type="Edm.String" Nullable="false" MaxLength="3" sap:text="AirlineText" sap:label="Airline" sap:creatable="false"
+					sap:updatable="false"/><Property Name="AirlineText" Type="Edm.String" sap:label="Airline (Description)" sap:creatable="false" sap:updatable="false"/><Property Name="CalendarYear" Type="Edm.String" MaxLength="4" sap:label="Flight Year" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false"/><Property Name="CustomerCountry" Type="Edm.String" MaxLength="3" sap:text="CustomerCountry_T" sap:label="Customer Country"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/><Property Name="CustomerCountry_T" Type="Edm.String" sap:label="Customer Country (Description)" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityType Name="ODataQueryAdditionalMetadata" sap:content-version="1">
+				<Key><PropertyRef Name="ODataQueryMetadata"/></Key><Property Name="ODataQueryMetadata" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="ODataQueryMetadataValue_Current" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/><Property Name="ODataQueryMetadataValueAtDefine" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:sortable="false"
+					sap:filterable="false"/></EntityType>
+			<EntityContainer Name="Z_QUERY_FLIGHT_ALP_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="ZQUERYFLIGHTALP" EntityType="Z_QUERY_FLIGHT_ALP_CDS.ZQUERYFLIGHTALPType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:content-version="1"/><EntitySet Name="CalendarYear" EntityType="Z_QUERY_FLIGHT_ALP_CDS.CalendarYear" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:content-version="1"/><EntitySet Name="CalendarYearResults" EntityType="Z_QUERY_FLIGHT_ALP_CDS.CalendarYearResult" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:content-version="1"/><EntitySet Name="CustomerCountry" EntityType="Z_QUERY_FLIGHT_ALP_CDS.CustomerCountry" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:content-version="1"/><EntitySet Name="CustomerCountryResults" EntityType="Z_QUERY_FLIGHT_ALP_CDS.CustomerCountryResult" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/><EntitySet Name="Airline" EntityType="Z_QUERY_FLIGHT_ALP_CDS.Airline" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:content-version="1"/><EntitySet Name="AirlineResults" EntityType="Z_QUERY_FLIGHT_ALP_CDS.AirlineResult" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:content-version="1"/><EntitySet Name="AdditionalMetadata" EntityType="Z_QUERY_FLIGHT_ALP_CDS.ODataQueryAdditionalMetadata" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:content-version="1"/></EntityContainer>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="Z_QUERY_FLIGHT_ALP_CDS.ZQUERYFLIGHTALPType/CalendarYear">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Flight Year ( Master Data )"/><PropertyValue Property="CollectionPath" String="CalendarYear"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CalendarYear"/><PropertyValue Property="ValueListProperty" String="CalendarYear_ID"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CalendarYearText"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="Z_QUERY_FLIGHT_ALP_CDS.ZQUERYFLIGHTALPType/CustomerCountry">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Customer Country ( Master Data )"/><PropertyValue Property="CollectionPath" String="CustomerCountry"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="CustomerCountry"/><PropertyValue Property="ValueListProperty" String="CustomerCountry_ID"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="CustomerCountryText"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="Z_QUERY_FLIGHT_ALP_CDS.ZQUERYFLIGHTALPType/Airline">
+				<Annotation Term="Common.ValueList">
+					<Record><PropertyValue Property="Label" String="Airline ( Master Data )"/><PropertyValue Property="CollectionPath" String="Airline"/><PropertyValue Property="SearchSupported" Bool="false"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterInOut"><PropertyValue Property="LocalDataProperty" PropertyPath="Airline"/><PropertyValue Property="ValueListProperty" String="Airline_ID"/></Record>
+								<Record Type="Common.ValueListParameterDisplayOnly"><PropertyValue Property="ValueListProperty" String="AirlineText"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/Z_QUERY_FLIGHT_ALP_CDS/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/Z_QUERY_FLIGHT_ALP_CDS/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,37 @@
+{
+	"fileName": "id_1633011040729_177_propertyChange",
+	"fileType": "change",
+	"changeType": "propertyChange",
+	"moduleName": "",
+	"reference": "com.au.gonzalomb.z_demo_flight_cds.Component",
+	"packageName": "$TMP",
+	"content": {
+		"property": "backgroundDesign",
+		"newValue": "Transparent"
+	},
+	"selector": {
+		"id": "com.au.gonzalomb.z_demo_flight_cds::sap.suite.ui.generic.template.AnalyticalListPage.view.AnalyticalListPage::ZQUERYFLIGHTALP--template::VisualFilterBar",
+		"type": "sap.suite.ui.generic.template.AnalyticalListPage.control.visualfilterbar.SmartVisualFilterBar",
+		"idIsLocal": false
+	},
+	"layer": "CUSTOMER_BASE",
+	"texts": {},
+	"namespace": "apps/com.au.gonzalomb.z_demo_flight_cds/changes/",
+	"projectId": "com.au.gonzalomb.z_demo_flight_cds",
+	"creation": "2021-09-30T14:10:41.538Z",
+	"originalLanguage": "EN",
+	"support": {
+		"generator": "sap.ui.rta.command",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.94.0",
+		"sourceChangeFileName": "",
+		"compositeCommand": "",
+		"command": "property"
+	},
+	"oDataInformation": {},
+	"dependentSelector": {},
+	"jsOnly": false,
+	"variantReference": "",
+	"appDescriptorChange": false
+}
